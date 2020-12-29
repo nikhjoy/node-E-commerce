@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
       name:"SAMSUNG GALAXY 10",
       category:"Mobile",
       description:"androids new baby",
-      image:"https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.gizmochina.com%2Fwp-content%2Fuploads%2F2019%2F01%2FSamsung-Galaxy-S10-Exynos.jpg&imgrefurl=https%3A%2F%2Fwww.gizmochina.com%2Fproduct%2Fsamsung-galaxy-s10-exynos%2F&tbnid=l7uNH_4wOvLfZM&vet=12ahUKEwii4cq9wPHtAhVH4oUKHaLhCjQQMygDegUIARDEAg..i&docid=bVHjHOjD3HK7_M&w=711&h=474&q=samsung%20s10&safe=strict&ved=2ahUKEwii4cq9wPHtAhVH4oUKHaLhCjQQMygDegUIARDEAg"
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgM6OF52_arGJacyGD8PMeVIIbx9A0v1UeDQ&usqp=CAU"
     },
     {
       name:"NOKIA N90",
@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
       image:"data:image/jpeg;base64,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"
     }
   ]
-  res.render('index',{products});
+  res.render('index',{products,admin:false});
 });
 
 module.exports = router;
