@@ -17,7 +17,7 @@
                     <td>{{this.product.Name}}</td>
                     {{!--{{/each}}--}}
                     <td>
-                        <button class="cart-item-count mr-3">-</button>{{this.quantity}}<button class="cart-item-count ml-3" onclick="changeQuantity({{this._id}})">+</button>
+                        <button class="cart-item-count mr-3" onclick="changeQuantity('{{this._id}}','{{this.product._id}}',-1)">-</button>{{this.quantity}}<button class="cart-item-count ml-3" onclick="changeQuantity('{{this._id}}','{{this.product._id}}',1)">+</button>
                     </td>
                     <td>
                         <a href="" class="btn btn-danger">Remove</a>
@@ -25,8 +25,23 @@
                 </tr>
                 {{/each}}
             </tbody>
-
         </table>
-
     </div>
 </section>
+
+<script>
+    function changeQuantity(cartId,proId,count){
+        $.ajax({
+            url:'/change-product-quantity',
+            data:{
+                cart:cartId,
+                product:proId,
+                count:count
+            },
+            method:'post',
+            success:(response)=>{
+                alert(response)
+            }
+        })
+    }
+</script>
