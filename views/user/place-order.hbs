@@ -11,6 +11,7 @@
                         <input type="text" class="form-control" id="pincode" name="pincode">
                         <label for="">Mobile</label>
                         <input class="form-control" type="text" id="mobile" name="mobile">
+                        <input type="text" name="userId" id="userId" value="{{user._id}}" hidden>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -33,6 +34,20 @@
         </form>
     </div>
 </section>
+
+<script>
+    $("#checkout-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:'/place-order',
+            method:'post',
+            data:$('#checkout-form').serialize(),
+            success:(response)=>{
+                alert(response)
+            }
+        })
+    })
+</script>
 
 <style>
     input[type=radio]{
