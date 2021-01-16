@@ -208,6 +208,7 @@ module.exports={
 
             db.get().collection(collection.ORDER_COLLECTION).insertOne(orderObj).then((response)=>{
                 db.get().collection(collection.CART_COLLECTION).removeOne({user:objectId(order.userId)})
+                console.log("order id:", response.ops[0]._id);
                 resolve(response.ops[0]._id)
             })
         })
@@ -262,9 +263,22 @@ module.exports={
             resolve(orderItems)
         })
     },
-    generateRazorpay:(orderId)=>{
+    generateRazorpay:(orderId,total)=>{
+        console.log(orderId);
         return new Promise((resolve,reject)=>{
-            
+            var options = {
+                amount: total,  // amount in the smallest currency unit
+                currency: "INR",
+                receipt: "order"+orderId
+              };
+              instance.orders.create(options, function(err, order) {
+                if(err){
+                    console.log(err)
+                }else{
+                console.log("New Order:",order);
+                resolve(order)
+                }
+              });
         })
     }
 
