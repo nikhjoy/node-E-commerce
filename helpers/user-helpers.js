@@ -269,13 +269,13 @@ module.exports={
             var options = {
                 amount: total*100,  // amount in the smallest currency unit
                 currency: "INR",
-                receipt: ""+orderId
+                receipt: "" + orderId
               };
               instance.orders.create(options, function(err, order) {
                 if(err){
                     console.log(err)
                 }else{
-                console.log("New Order:",order);
+                console.log("New Order:", order);
                 resolve(order)
                 }
               });
